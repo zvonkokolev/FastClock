@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using EventsDemo.FastClock;
 
 namespace EventsDemo.FastClockWpf
 {
@@ -9,44 +8,46 @@ namespace EventsDemo.FastClockWpf
 	/// </summary>
 	public partial class MainWindow
 	{
-		private FastClock.FastClock _fastClock;
+		protected readonly FastClock.FastClock _fastClock;
 		private DigitalClock _digitalClock;
-		private bool _isButtonClicked;
+		public bool IsButtonClicked { get; set; }
+
 		public MainWindow()
 		{
 			InitializeComponent();
+			DateTime dateTime = new DateTime(2000, 1, 1, 0, 0, 0);
+			_fastClock = new FastClock.FastClock(dateTime);
 		}
 
 		private void MetroWindow_Initialized(object sender, EventArgs e)
 		{
 			DatePickerDate.SelectedDate = DateTime.Today;
 			TextBoxTime.Text = DateTime.Now.ToShortTimeString();
-			DateTime dateTime = new DateTime(2000, 1, 1, 0, 0, 0);
-			_fastClock = new FastClock.FastClock(dateTime);
 		}
 		
 		private void ButtonSetTime_Click(object sender, RoutedEventArgs e)
 		{
-			DatePickerDate.SelectedDate = DateTime.Today;
-			TextBoxTime.Text = DateTime.Now.ToShortTimeString();
+			DatePickerDate.SelectedDate = DatePickerDate.SelectedDate;
+			TextBoxTime.Text = TextBoxTime.Text;
+			SetFastClockStartDateAndTime();
 		}
 
 		private void SetFastClockStartDateAndTime()
 		{
-			//_fastClock = new FastClock.FastClock(DateTime.Now);
-			//_fastClock.OneMinuteIsOver += FastClockOneMinuteIsOver;
+			textBlockDate.Text = DatePickerDate.SelectedDate.Value.ToShortDateString();
+			textBlockTime.Text = TextBoxTime.Text;
 		}
 
-		private void FastClockOneMinuteIsOver(object sender, DateTime fastClockTime)
+		public void FastClockOneMinuteIsOver(object sender, DateTime fastClockTime)
 		{
 			textBlockDate.Text = fastClockTime.Date.ToShortDateString();
 			textBlockTime.Text = fastClockTime.ToShortTimeString();
-			if (_isButtonClicked)
+			if (IsButtonClicked)
 			{
 				_digitalClock = new DigitalClock();
-				_isButtonClicked = false;
+				IsButtonClicked = false;
 			}
-			if(_digitalClock != null)
+			if (_digitalClock != null)
 			{
 				_digitalClock.Owner = this;
 				_digitalClock.Show();
@@ -62,7 +63,7 @@ namespace EventsDemo.FastClockWpf
 
 		private void ButtonCreateView_Click(object sender, RoutedEventArgs e)
 		{
-			_isButtonClicked = true;
+			IsButtonClicked = true;
 			_fastClock.OneMinuteIsOver += FastClockOneMinuteIsOver;
 		}
 

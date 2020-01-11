@@ -40,7 +40,7 @@ namespace EventsDemo.FastClock
          OnOneMinuteIsOver(CurrentTime);
       }
 
-      protected virtual void OnOneMinuteIsOver(DateTime currentTime)
+      protected void OnOneMinuteIsOver(DateTime currentTime)
       {
          OneMinuteIsOver?.Invoke(this, currentTime);
       }
