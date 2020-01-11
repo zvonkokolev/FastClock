@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsDemo.FastClockWpf", "EventsDemo.FastClockWpf\EventsDemo.FastClockWpf.csproj", "{8E9A104D-B9B0-4E0F-B35A-37429990F1A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsDemo.FastClock", "EventsDemo.FastClock\EventsDemo.FastClock.csproj", "{3DC06681-420F-4318-8F18-DD8C18E9706F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E9A104D-B9B0-4E0F-B35A-37429990F1A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E9A104D-B9B0-4E0F-B35A-37429990F1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E9A104D-B9B0-4E0F-B35A-37429990F1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E9A104D-B9B0-4E0F-B35A-37429990F1A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DC06681-420F-4318-8F18-DD8C18E9706F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DC06681-420F-4318-8F18-DD8C18E9706F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DC06681-420F-4318-8F18-DD8C18E9706F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DC06681-420F-4318-8F18-DD8C18E9706F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
